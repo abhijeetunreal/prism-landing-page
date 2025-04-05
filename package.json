@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -83,8 +83,3 @@
   }
 }
 
-{
-  "scripts": {
-    "build": "tsc"   // Compiles TS using your root tsconfig.json
-  }
-}
