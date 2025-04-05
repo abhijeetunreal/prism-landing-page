@@ -1,37 +1,37 @@
 
 import React from "react";
-import { Heart, Brain, Battery, Bell, Leaf, Moon } from "lucide-react";
+import { Heart, Vibrate, LightbulbOff, Bell, Smartphone, Moon } from "lucide-react";
 
 const featuresList = [
   {
+    icon: <Vibrate className="w-6 h-6 text-primary" />,
+    title: "Haptic Feedback",
+    description: "Gentle vibrations remind you to reconnect with the present moment."
+  },
+  {
+    icon: <LightbulbOff className="w-6 h-6 text-primary" />,
+    title: "Ambient Light",
+    description: "Soft light cues help guide your attention without disrupting your flow."
+  },
+  {
     icon: <Heart className="w-6 h-6 text-primary" />,
-    title: "Heart Rate Variability",
-    description: "Track your stress levels and recovery with precise HRV monitoring."
-  },
-  {
-    icon: <Brain className="w-6 h-6 text-primary" />,
-    title: "Mindfulness Metrics",
-    description: "Gain insights into your mental state and focus levels throughout the day."
-  },
-  {
-    icon: <Battery className="w-6 h-6 text-primary" />,
-    title: "7-Day Battery Life",
-    description: "Extended battery life ensures continuous monitoring without frequent charging."
+    title: "Wellness Tracking",
+    description: "Monitor your mindfulness progress and stress levels over time."
   },
   {
     icon: <Bell className="w-6 h-6 text-primary" />,
-    title: "Gentle Reminders",
-    description: "Customizable notifications to help you stay mindful during your day."
+    title: "Customizable Cues",
+    description: "Set your preferred combination of haptic, light, and sound notifications."
   },
   {
-    icon: <Leaf className="w-6 h-6 text-primary" />,
-    title: "Breathing Exercises",
-    description: "Guided breathing sessions to reduce stress and improve focus."
+    icon: <Smartphone className="w-6 h-6 text-primary" />,
+    title: "Minimal App",
+    description: "Simple companion app with no unnecessary distractions or screen time."
   },
   {
     icon: <Moon className="w-6 h-6 text-primary" />,
-    title: "Sleep Analysis",
-    description: "Advanced sleep tracking to optimize your rest and recovery."
+    title: "Sleep Support",
+    description: "Optional features to help improve sleep quality through mindful transitions."
   }
 ];
 
@@ -39,10 +39,10 @@ const Features = () => {
   return (
     <section id="features" className="section-container bg-white">
       <div className="text-center mb-16">
-        <h2 className="heading-lg mb-4">Designed for <span className="gradient-text">Mindful Living</span></h2>
+        <h2 className="heading-lg mb-4">Designed for <span className="gradient-text">Present Living</span></h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Our wearable combines cutting-edge technology with minimalist design to 
-          help you achieve balance in your daily life.
+          Prism combines minimalist design with subtle technology to help you 
+          cultivate mindfulness without screen dependency.
         </p>
       </div>
 

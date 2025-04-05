@@ -27,7 +27,7 @@ const Newsletter = () => {
     setTimeout(() => {
       toast({
         title: "Thank you for subscribing!",
-        description: "You've been added to our early access waitlist.",
+        description: "You've been added to our early access waitlist for Prism.",
       });
       setEmail("");
       setLoading(false);
@@ -37,7 +37,7 @@ const Newsletter = () => {
   return (
     <section id="waitlist" className="bg-gradient-to-br from-primary/10 to-accent/10">
       <div className="section-container text-center">
-        <h2 className="heading-lg mb-4">Be the first to experience Serene</h2>
+        <h2 className="heading-lg mb-4">Be the first to experience Prism</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
           Join our waitlist to get early access to our mindfulness wearable and 
           receive exclusive updates on our development progress.

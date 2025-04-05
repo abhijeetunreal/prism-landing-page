@@ -11,11 +11,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <a href="#" className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-primary">Serene</span>
+              <span className="text-2xl font-bold text-primary">Prism</span>
             </a>
             <p className="text-background/80 max-w-md">
-              A mindfulness wearable designed to bring balance to your daily life through 
-              gentle guidance and insightful wellness tracking.
+              Present Resonance Interface for Sensory Mindfulness: A stylish, minimalist wearable 
+              device designed to gently nudge users back to the present moment through subtle sensory cues.
             </p>
           </div>
           
@@ -49,7 +49,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
               <li className="text-background/70">
-                hello@serenewearable.com
+                hello@prismwearable.com
               </li>
               <li className="text-background/70">
                 San Francisco, CA
@@ -69,7 +69,7 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-background/70 mb-4 md:mb-0">
-            &copy; {currentYear} Serene. All rights reserved.
+            &copy; {currentYear} Prism. All rights reserved.
           </p>
           <div className="flex items-center text-background/70">
             <span>Made with</span>

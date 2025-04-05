@@ -13,8 +13,8 @@ const Hero = () => {
               <span className="gradient-text">Mindful</span> living at your fingertips
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg mx-auto md:mx-0">
-              Introducing Serene, the wearable device designed to bring balance, 
-              mindfulness, and wellness to your everyday life.
+              Introducing Prism, the stylish wearable device designed to bring mindfulness 
+              and presence to your everyday life through gentle sensory cues.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button className="btn-primary">
@@ -35,7 +35,7 @@ const Hero = () => {
               <div className="w-32 h-32 md:w-44 md:h-44 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg animate-float">
                 <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-inner">
                   <div className="text-center">
-                    <span className="block text-xs md:text-sm text-primary font-medium">SERENE</span>
+                    <span className="block text-xs md:text-sm text-primary font-medium">PRISM</span>
                   </div>
                 </div>
               </div>
@@ -50,8 +50,8 @@ const Hero = () => {
             <p className="text-sm text-muted-foreground">Stress Reduction</p>
           </div>
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-primary">14+</h3>
-            <p className="text-sm text-muted-foreground">Mindful Metrics</p>
+            <h3 className="text-3xl font-bold text-primary">3+</h3>
+            <p className="text-sm text-muted-foreground">Sensory Cues</p>
           </div>
           <div className="text-center">
             <h3 className="text-3xl font-bold text-primary">7d</h3>
@@ -59,7 +59,7 @@ const Hero = () => {
           </div>
           <div className="text-center">
             <h3 className="text-3xl font-bold text-primary">24/7</h3>
-            <p className="text-sm text-muted-foreground">Wellness Tracking</p>
+            <p className="text-sm text-muted-foreground">Mindfulness Support</p>
           </div>
         </div>
       </div>
