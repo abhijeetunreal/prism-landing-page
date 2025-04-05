@@ -29,4 +29,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # The branch GitHub Pages uses
-          folder: public  # Replace with your build output folder (e.g., "dist", "build", or "public")
+          folder: dist  # Replace with your build output folder (e.g., "dist", "build", or "public")
