@@ -3,7 +3,6 @@ import React from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent } from "@/components/ui/card";
-import ScrollingMarquee from "./ScrollingMarquee";
 
 const ProductShowcase = () => {
   const showcaseItems = [
@@ -52,16 +51,10 @@ const ProductShowcase = () => {
   ];
 
   return (
-    <section id="showcase" className="section-container bg-gradient-to-br from-mindful-cream/50 to-mindful-green/30 overflow-hidden">
-      <div className="relative z-10 mb-12">
-        <div className="py-3 bg-gradient-to-r from-background via-mindful-teal/20 to-background">
-          <ScrollingMarquee 
-            text="Designed for Everyday Life" 
-            className="text-3xl md:text-4xl font-bold tracking-tight" 
-            speed="normal"
-          />
-        </div>
-        <p className="text-muted-foreground text-lg max-w-3xl mx-auto text-center mt-8 mb-12">
+    <section id="showcase" className="section-container bg-gradient-to-br from-mindful-cream/50 to-mindful-green/30">
+      <div className="relative z-10">
+        <h2 className="heading-lg mb-8 text-center">Designed for <span className="gradient-text">Everyday Life</span></h2>
+        <p className="text-muted-foreground text-lg max-w-3xl mx-auto text-center mb-12">
           Prism is designed to be worn throughout your day, fitting seamlessly into your lifestyle
           whether worn as a bracelet or pendant.
         </p>

@@ -87,28 +87,6 @@
   }
 }
 
-/* Marquee animation */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll {
-  animation: scroll 30s linear infinite;
-}
-
-.animate-scroll-slow {
-  animation: scroll 50s linear infinite;
-}
-
-.animate-scroll-fast {
-  animation: scroll 20s linear infinite;
-}
-
 /* Particle animation keyframes */
 @keyframes float-particle {
   0%, 100% {

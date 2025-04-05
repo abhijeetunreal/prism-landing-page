@@ -1,18 +1,10 @@
-
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { motion } from "framer-motion";
 
 const DesignProcess = () => {
   const [scrollY, setScrollY] = useState(0);
-  const [activeTab, setActiveTab] = useState("sketches");
-  const contentRefs = useRef<{ [key: string]: React.RefObject<HTMLDivElement> }>({
-    sketches: React.createRef(),
-    wireframes: React.createRef(),
-    prototypes: React.createRef(),
-    final: React.createRef()
-  });
   
   useEffect(() => {
     const handleScroll = () => {
@@ -24,20 +16,6 @@ const DesignProcess = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    // Scroll to the active tab content when tab changes
-    if (contentRefs.current[activeTab]?.current) {
-      contentRefs.current[activeTab].current?.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-      });
-    }
-  }, [activeTab]);
-
-  const handleTabChange = (value: string) => {
-    setActiveTab(value);
-  };
 
   return (
     <section id="design" className="section-container relative overflow-hidden bg-gradient-to-br from-mindful-teal/30 to-background">
@@ -52,7 +30,7 @@ const DesignProcess = () => {
           </p>
         </div>
         
-        <Tabs defaultValue="sketches" className="w-full max-w-5xl mx-auto" value={activeTab} onValueChange={handleTabChange}>
+        <Tabs defaultValue="sketches" className="w-full max-w-5xl mx-auto">
           <TabsList className="grid w-full max-w-lg mx-auto mb-8 md:grid-cols-4 bg-white/40 backdrop-blur-sm">
             <TabsTrigger value="sketches" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Sketches</TabsTrigger>
             <TabsTrigger value="wireframes" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Wireframes</TabsTrigger>
@@ -64,13 +42,8 @@ const DesignProcess = () => {
             className="relative"
             style={{ transform: `translateY(${scrollY * 0.02}px)` }}
           >
-            <TabsContent value="sketches" className="space-y-6" ref={contentRefs.current.sketches}>
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 gap-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+            <TabsContent value="sketches" className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="bg-white p-6 rounded-xl shadow-sm backdrop-blur-sm hover:shadow-md transition-shadow duration-300">
                   <AspectRatio ratio={4/3}>
                     <div className="flex items-center justify-center w-full h-full bg-mindful-gray rounded-lg">
@@ -98,16 +71,11 @@ const DesignProcess = () => {
                   <h3 className="font-medium mt-4 text-xl">Form Refinement</h3>
                   <p className="text-muted-foreground mt-2">Exploring materials and ergonomics</p>
                 </div>
-              </motion.div>
+              </div>
             </TabsContent>
             
-            <TabsContent value="wireframes" className="space-y-6" ref={contentRefs.current.wireframes}>
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+            <TabsContent value="wireframes" className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white p-4 rounded-xl shadow-sm">
                   <AspectRatio ratio={4/3}>
                     <div className="flex items-center justify-center w-full h-full bg-mindful-gray rounded-lg">
@@ -146,16 +114,11 @@ const DesignProcess = () => {
                   <h3 className="font-medium mt-3">3D Wireframes</h3>
                   <p className="text-sm text-muted-foreground">Testing structure and dimensions</p>
                 </div>
-              </motion.div>
+              </div>
             </TabsContent>
             
-            <TabsContent value="prototypes" className="space-y-6" ref={contentRefs.current.prototypes}>
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+            <TabsContent value="prototypes" className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white p-4 rounded-xl shadow-sm">
                   <AspectRatio ratio={4/3}>
                     <div className="flex items-center justify-center w-full h-full bg-mindful-gray rounded-lg">
@@ -188,16 +151,11 @@ const DesignProcess = () => {
                   <h3 className="font-medium mt-3">Beta Prototype</h3>
                   <p className="text-sm text-muted-foreground">User testing and feedback implementation</p>
                 </div>
-              </motion.div>
+              </div>
             </TabsContent>
             
-            <TabsContent value="final" className="space-y-6" ref={contentRefs.current.final}>
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 gap-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+            <TabsContent value="final" className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="bg-white p-6 rounded-xl shadow-sm backdrop-blur-sm hover:shadow-md transition-shadow duration-300">
                   <AspectRatio ratio={4/3}>
                     <div className="flex items-center justify-center w-full h-full bg-mindful-gray rounded-lg">
@@ -234,7 +192,7 @@ const DesignProcess = () => {
                   <h3 className="font-medium mt-4 text-xl">Pendant Form Factor</h3>
                   <p className="text-muted-foreground mt-2">Final production-ready pendant design</p>
                 </div>
-              </motion.div>
+              </div>
               
               <div className="mt-8 text-center">
                 <p className="text-lg text-muted-foreground">Production scheduled to begin in Q3 2025</p>
