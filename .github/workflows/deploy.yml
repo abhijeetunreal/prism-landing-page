@@ -30,3 +30,8 @@ jobs:
         with:
           branch: gh-pages  # The branch GitHub Pages uses
           folder: dist  # Replace with your build output folder (e.g., "dist", "build", or "public")
+
+      - name: Copy config files
+  run: |
+    cp tailwind.config.ts dist/
+    cp vite.config.ts dist/
