@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import Particles from "@/components/Particles";
 import ProductShowcase from "@/components/ProductShowcase";
 import DesignProcess from "@/components/DesignProcess";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
