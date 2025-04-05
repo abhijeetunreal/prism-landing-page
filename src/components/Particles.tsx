@@ -9,6 +9,10 @@ interface Particle {
   speedY: number;
   color: string;
   opacity: number;
+  pulse: boolean;
+  pulseSpeed: number;
+  maxSize: number;
+  minSize: number;
 }
 
 const Particles = () => {
@@ -31,25 +35,31 @@ const Particles = () => {
     window.addEventListener("resize", resizeCanvas);
     
     // Particle settings
-    const particleCount = 40;
+    const particleCount = 50;
     const particles: Particle[] = [];
     const colors = [
       "rgba(211, 228, 253, 0.7)", // mindful-blue
       "rgba(242, 252, 226, 0.7)", // mindful-green
       "rgba(229, 222, 255, 0.7)", // mindful-teal
       "rgba(254, 247, 205, 0.7)", // mindful-cream
+      "rgba(155, 135, 245, 0.5)", // primary purple
     ];
     
     // Create particles
     for (let i = 0; i < particleCount; i++) {
+      const size = Math.random() * 10 + 2;
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 10 + 2,
+        size: size,
+        minSize: size * 0.5,
+        maxSize: size * 1.5,
         speedX: Math.random() * 0.5 - 0.25,
         speedY: Math.random() * 0.5 - 0.25,
         color: colors[Math.floor(Math.random() * colors.length)],
         opacity: Math.random() * 0.5 + 0.3,
+        pulse: true,
+        pulseSpeed: 0.02 + Math.random() * 0.03,
       });
     }
     
@@ -58,6 +68,21 @@ const Particles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach((particle) => {
+        // Update size for pulsing effect
+        if (particle.pulse) {
+          if (particle.size >= particle.maxSize) {
+            particle.pulse = false;
+          } else {
+            particle.size += particle.pulseSpeed;
+          }
+        } else {
+          if (particle.size <= particle.minSize) {
+            particle.pulse = true;
+          } else {
+            particle.size -= particle.pulseSpeed;
+          }
+        }
+        
         // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
@@ -92,7 +117,7 @@ const Particles = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 z-0 pointer-events-none"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.7 }}
     />
   );
 };

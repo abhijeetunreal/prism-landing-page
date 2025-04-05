@@ -1,14 +1,27 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <section className="relative pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden bg-gradient-to-b from-mindful-teal/40 via-mindful-blue/30 to-background">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left" style={{ transform: `translateY(${scrollY * 0.05}px)` }}>
             <h1 className="heading-xl mb-4">
               <span className="bg-gradient-to-r from-primary via-accent to-[#9b87f5] bg-clip-text text-transparent">Mindful</span> living at your fingertips
             </h1>
@@ -26,7 +39,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="relative w-full h-[300px] md:h-[400px]">
+          <div className="relative w-full h-[300px] md:h-[400px]" style={{ transform: `translateY(${scrollY * -0.1}px)` }}>
             <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
               <div className="w-40 h-40 md:w-56 md:h-56 bg-mindful-teal rounded-full opacity-40 animate-breathe"></div>
             </div>
@@ -43,8 +56,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Stats section */}
-        <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Stats section with parallax effect */}
+        <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-8" style={{ transform: `translateY(${scrollY * 0.03}px)` }}>
           <div className="text-center">
             <h3 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">97%</h3>
             <p className="text-sm text-muted-foreground">Stress Reduction</p>
@@ -64,9 +77,15 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Background design elements */}
-      <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#9b87f5] rounded-full opacity-30 blur-3xl"></div>
-      <div className="absolute -bottom-32 -left-16 w-72 h-72 bg-mindful-teal rounded-full opacity-40 blur-3xl"></div>
+      {/* Enhanced background design elements with parallax */}
+      <div 
+        className="absolute -top-24 -right-24 w-64 h-64 bg-[#9b87f5] rounded-full opacity-30 blur-3xl"
+        style={{ transform: `translate(${scrollY * 0.1}px, ${scrollY * -0.05}px)` }}
+      ></div>
+      <div 
+        className="absolute -bottom-32 -left-16 w-72 h-72 bg-mindful-teal rounded-full opacity-40 blur-3xl"
+        style={{ transform: `translate(${scrollY * -0.1}px, ${scrollY * 0.05}px)` }}
+      ></div>
     </section>
   );
 };

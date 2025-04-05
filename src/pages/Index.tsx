@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
@@ -12,15 +12,40 @@ import ProductShowcase from "@/components/ProductShowcase";
 import DesignProcess from "@/components/DesignProcess";
 
 const Index = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden">
       <Particles />
       <Header />
       <main>
         <Hero />
-        <Features />
+        <div className="relative">
+          <Features />
+          <div 
+            className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-mindful-blue/30 blur-3xl pointer-events-none"
+            style={{ transform: `translate(${scrollY * 0.03}px, ${scrollY * -0.02}px)` }}
+          ></div>
+        </div>
         <ProductShowcase />
-        <Benefits />
+        <div className="relative">
+          <Benefits />
+          <div 
+            className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-mindful-teal/30 blur-3xl pointer-events-none"
+            style={{ transform: `translate(${scrollY * -0.03}px, ${scrollY * 0.02}px)` }}
+          ></div>
+        </div>
         <DesignProcess />
         <About />
         <Newsletter />
