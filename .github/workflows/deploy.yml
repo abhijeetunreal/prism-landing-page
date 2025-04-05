@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build project (TypeScript)
-        run: npm run build  # Replace with your build command (e.g., tsc)
+        run: tsc  # Replace with your build command (e.g., tsc)
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
